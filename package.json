@@ -10,6 +10,9 @@
     "learn",
     "project"
   ],
-  "author": "[Amir Saleem",
-  "license": "MIT"
+  "author": "Amir Saleem",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
