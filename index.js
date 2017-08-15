@@ -7,6 +7,10 @@ var compression = require("compression");
 
 // serving the static content
 app.engine('html', require('hogan-express'));
+app.set('partials',{
+  header: 'header',
+  footer: 'footer'
+});
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(compression()); //compressing payload on every request
 app.set('view engine', 'html');
