@@ -1,1 +1,12 @@
 @import 'require';
+
+footer {
+  width: 100%;
+  background: $dark;
+  padding: 10px 10px;
+  h1 {
+    text-align: center;
+    color: $light;
+    font-size: 24px;
+  }
+}
