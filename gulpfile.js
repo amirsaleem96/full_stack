@@ -2,30 +2,24 @@
 
 var gulp = require("gulp");
 var sass = require("gulp-sass");
+var notify = require("gulp-notify");
 var browserSync = require("browser-sync").create();
-
-gulp.task("test", function(){
-  console.log("test task is running successfully");
-});
 
 gulp.task("build-scss", function(){
   return gulp.src('static/scss/**/*.scss')
          .pipe(sass())
+         .on('error', notify.onError("Error: <%= error.message %>"))
          .pipe(gulp.dest('static/css'))
-         .pipe(browserSync.reload({
-           stream : true,
-           done : true
-         }))
 });
 
-gulp.task('browserSync', function(){
+/*gulp.task('browserSync', function(){
   browserSync.init({
-    server : {
-      baseDir : './views'
-    }
+    server : true
   });
-});
+});*/
 
-gulp.task('watch', ['browserSync', 'build-scss'] ,function(){
+gulp.task('watch', ['build-scss'],function(){
   gulp.watch('static/scss/**/*.scss', ['build-scss']);
 });
+
+gulp.task('default', ['watch']);
