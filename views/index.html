@@ -2,8 +2,22 @@
 <html>
   <head>
     <title>Project | Full Stack</title>
+
+    {{#styles.length}}
+      	{{#styles}}
+      		<link rel="stylesheet" type = "text/css" href="/{{.}}"/>
+      	{{/styles}}
+  	{{/styles.length}}
+
   </head>
   <body>
-    <h1>Hello World from express and node js</h1>
+    <h1>this should work.....</h1>
+
+    {{#scripts.length}}
+        {{#scripts}}
+          <script type = "text/javascript" src = "/{{.}}"></script>
+        {{/scripts}}
+    {{/scripts.length}}
+
   </body>
 </html>
