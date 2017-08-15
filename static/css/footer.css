@@ -21,6 +21,13 @@ ul {
   margin: 0;
   padding: 0; }
 
+div,
+header,
+footer,
+aside,
+article {
+  position: relative; }
+
 .clearfix::after {
   content: "";
   display: block;

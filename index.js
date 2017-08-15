@@ -24,6 +24,6 @@ var settings = {
 require(__dirname+'/routes/home.js')(settings);
 
 app.listen(3000, function(){
-  console.log("listening to port:  " + 3000);
+  console.log("Local localhost:  " + 3000);
   console.log("On your network: 192.168.88.111:3000");
 });
