@@ -1,8 +1,15 @@
 {{> header}}
 
-<form action="/upload" enctype="multipart/form-data" method="post">
-  <input type="file" name = "uploadImage"/>
+<form action="/upload" enctype="multipart/form-data" method="post" id = "upload-form">
+  <input type="file" name = "uploadImage" id = "image-name"/>
   <input type="submit"/>
 </form>
+<button type="button" name="button" id = "ajax-btn">AJAX Submit</button>
+
+<div class = "col-md-12">
+
+   <div class = "image-wrapper"></div>
+
+</div>
 
 {{> footer}}
