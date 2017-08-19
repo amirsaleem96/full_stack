@@ -28,6 +28,10 @@ aside,
 article {
   position: relative; }
 
+img {
+  display: block;
+  max-width: 100%; }
+
 .clearfix::after {
   content: "";
   display: block;
@@ -71,3 +75,6 @@ article {
 
 .light-bg {
   background: white; }
+
+body {
+  background: #000; }
