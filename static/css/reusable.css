@@ -1,0 +1,43 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+.align-left {
+  float: left; }
+
+.align-right {
+  float: right; }
+
+.text-align-left {
+  text-align: left; }
+
+.text-align-center {
+  text-align: center; }
+
+.text-align-right {
+  text-align: right; }
+
+.thick-border-dark {
+  border: 5px solid black; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.thick-border-light {
+  border: 5px solid white; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.dark-bg {
+  background: black; }
+
+.light-bg {
+  background: white; }
