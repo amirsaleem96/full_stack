@@ -10,7 +10,7 @@ var path = require("path");
 var mode = 'prod';
 
 program
-    .version(require('./package.json')['version'])
+    .version(require('./package.json').version)
     .option('-d, --debug','run in debug mode')
     .option('-p, --port [value]', 'specify the port number')
     .option('-pa, --prod','run in production mode')
@@ -24,7 +24,7 @@ if(!program.port) {
 }
 
 if(program.debug) {
-  mode = 'debug'
+  mode = 'debug';
 }
 
 var port = program.port;
@@ -36,7 +36,7 @@ app.set('partials',{
   footer: 'footer'
 });
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression()); //compressing payload on every request
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
