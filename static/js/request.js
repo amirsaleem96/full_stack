@@ -25,7 +25,7 @@ var postRequest = function(url,headers,data,successCallback,failCallback,process
 
             console.info("clash: "+url+JSON.stringify(data));
             debugger;
-            return
+            return;
         }
     }
     if(insert){
@@ -170,12 +170,12 @@ function onRequestFailure(res){
                 }
             }
             else{
-                window.location = "/logout"
+                window.location = "/logout";
                 }
             }, function(res){
                 lock = "0";
-                    window.location = "/logout"
-            },true,null)
+                    window.location = "/logout";
+            },true,null);
         }
     }
     else if(res.status==403){
@@ -185,6 +185,6 @@ function onRequestFailure(res){
 
 function printObjectArray(anArray){
     for(var i=0; i< anArray.length; i++){
-       console.log(anArray[i]["a"])
+       console.log(anArray[i]["a"]);
     }
 }

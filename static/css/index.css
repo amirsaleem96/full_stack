@@ -154,15 +154,6 @@ img {
 .light-bg {
   background: white; }
 
-header {
-  width: 100%;
-  background: black;
-  padding: 10px 10px; }
-  header h1 {
-    text-align: center;
-    color: white;
-    font-size: 24px; }
-
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
