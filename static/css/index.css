@@ -75,3 +75,177 @@ img {
 
 .light-bg {
   background: white; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+div,
+header,
+footer,
+aside,
+article {
+  position: relative; }
+
+img {
+  display: block;
+  max-width: 100%; }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+.align-left {
+  float: left; }
+
+.align-right {
+  float: right; }
+
+.text-align-left {
+  text-align: left; }
+
+.text-align-center {
+  text-align: center; }
+
+.text-align-right {
+  text-align: right; }
+
+.thick-border-dark {
+  border: 5px solid black; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.thick-border-light {
+  border: 5px solid white; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.dark-bg {
+  background: black; }
+
+.light-bg {
+  background: white; }
+
+header {
+  width: 100%;
+  background: black;
+  padding: 10px 10px; }
+  header h1 {
+    text-align: center;
+    color: white;
+    font-size: 24px; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+div,
+header,
+footer,
+aside,
+article {
+  position: relative; }
+
+img {
+  display: block;
+  max-width: 100%; }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+.align-left {
+  float: left; }
+
+.align-right {
+  float: right; }
+
+.text-align-left {
+  text-align: left; }
+
+.text-align-center {
+  text-align: center; }
+
+.text-align-right {
+  text-align: right; }
+
+.thick-border-dark {
+  border: 5px solid black; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.thick-border-light {
+  border: 5px solid white; }
+
+.thin-border-dark {
+  border: 1px solid black; }
+
+.dark-bg {
+  background: black; }
+
+.light-bg {
+  background: white; }
+
+footer {
+  width: 100%;
+  background: black;
+  padding: 10px 10px; }
+  footer h1 {
+    text-align: center;
+    color: white;
+    font-size: 24px; }

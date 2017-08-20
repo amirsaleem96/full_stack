@@ -6,3 +6,7 @@
 //     $('.image-wrapper').append('<div class = "col-md-4"><img src = "/static/uploads/'+img+'"/></div>');
 //   });
 // });
+function some() {
+  console.log('some');
+}
+some();
