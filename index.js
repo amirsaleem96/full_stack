@@ -7,18 +7,17 @@ var compression = require("compression");
 var program = require('commander');
 var multer = require('multer');
 var path = require("path");
-var mode = 'prod';
+var mode = 'production';
 
 program
     .version(require('./package.json').version)
     .option('-d, --debug','run in debug mode')
     .option('-p, --port [value]', 'specify the port number')
-    .option('-pa, --prod','run in production mode')
     .parse(process.argv);
 
 if(!program.port) {
 
- console.log('Port number is required');
+ console.log('Port number is required\nSyntax: --port=8080 (replace 8080 with your own port number)');
  return;
 
 }
@@ -70,4 +69,8 @@ var settings = {
 
 require(__dirname+'/routes/home.js')(settings);
 
-app.listen(port);
+app.listen(port, function(){
+  console.log('\nApp is running at port: ' +
+               port + ' in '+mode+' mode\nTo access locally go to:- "localhost:'+port+'"'+
+              '\nTo access on network go to:- "IPv4:'+port+'" where IPv4 is your network IP address for example 192.168.88.111\nTo find your network IP address go to terminal/command prompt and type "ipconfig"' );
+});
