@@ -9,6 +9,17 @@ var multer = require('multer');
 var path = require("path");
 var mode = 'production';
 
+
+var mysql = require('mysql');
+
+var con = mysql.createConnectio({
+
+  host : "localhost",
+  user : "amir",
+  password : "#Lm%d0642cd"
+
+});
+
 program
     .version(require('./package.json').version)
     .option('-d, --debug','run in debug mode')
