@@ -12,12 +12,33 @@ var mode = 'production';
 
 var mysql = require('mysql');
 
-var con = mysql.createConnectio({
-
+var poolConfig = {
   host : "localhost",
   user : "amir",
-  password : "#Lm%d0642cd"
+  password : "#Lm%d0642cd",
+  database : "testdb",
+  connectionLimit : 20,
+  connectTimeout: 120000 ,
+	timeout: 120000
+}
 
+var con = mysql.createPool(poolConfig);
+
+con.getConnection(function(err,connection){
+  if(err) {
+    throw err;
+  } else {
+    con.query("SELECT * FROM UserMaster",function(err, result, fields){
+      if(err) {
+        throw err;
+      } else {
+        for(var i = 0; i < result.length; i++) {
+          console.log('Name: ' + result[i].FirstName + ' ' + result[i].LastName);
+        }
+      }
+    });
+    connection.release();
+  }
 });
 
 program
