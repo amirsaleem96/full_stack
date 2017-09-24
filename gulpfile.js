@@ -38,12 +38,12 @@ gulp.task('build-css', function(){
 		gulp.src(
 			getAssetsArray(staticMapper[key]["styles"]["debug"])
 		)
-		.pipe(concat(staticMapper[key]["styles"]["prod"][0]))
+		.pipe(concat(staticMapper[key]["styles"]["production"][0]))
 		.on('error', notify.onError("Error: <%= error.message %>"))
 		.pipe(uglifycss())
 		.on('error', notify.onError("Error: <%= error.message %>"))
 		.pipe(gulp.dest('.'))
-	    .pipe(notify('Concatenated stylesheets for ' + staticMapper[key]["styles"]["prod"][0] + ' (' + moment().format('MMM Do h:mm:ss A') + ')'))
+	    .pipe(notify('Concatenated stylesheets for ' + staticMapper[key]["styles"]["production"][0] + ' (' + moment().format('MMM Do h:mm:ss A') + ')'))
 	}
 
 });
@@ -55,7 +55,7 @@ gulp.task('build-js', function(){
 	)
 		.pipe(gulpDebug())
         .on('error', notify.onError("Error: <%= error.message %>"))
-        .pipe(concat(staticMapper[key]["scripts"]["prod"][0]))
+        .pipe(concat(staticMapper[key]["scripts"]["production"][0]))
         .on('error', notify.onError("Error: <%= error.message %>"))
         .pipe(uglify())
         .on('error', function(err) {
@@ -63,7 +63,7 @@ gutil.log(gutil.colors.red('[Error]'), err.toString());
 this.emit('end');
 })
         .pipe(gulp.dest('.'))
-        .pipe(notify('Uglified JavaScript (' +staticMapper[key]["scripts"]["prod"][0]+ moment().format('MMM Do h:mm:ss A') + ')'))
+        .pipe(notify('Uglified JavaScript (' +staticMapper[key]["scripts"]["production"][0]+ moment().format('MMM Do h:mm:ss A') + ')'))
 	}
 })
 

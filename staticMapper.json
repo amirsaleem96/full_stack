@@ -8,7 +8,7 @@
         "static/css/footer.css",
         "static/css/index.css"
       ],
-      "prod" : [
+      "production" : [
         "static/build/css/index.min.css"
       ]
     },
@@ -22,7 +22,7 @@
         "static/js/vendor/moment.js",
         "static/js/index.js"
       ],
-      "prod" : [
+      "production" : [
         "static/build/js/index.min.js"
       ]
     }

@@ -10,7 +10,7 @@ module.exports = function(settings){
 
   app.get("/",function(req, res){
      res.render("index", {
-       title: 'Portfolio | Homepage',
+       title: 'Page title',
        styles:  assetsMapper["index"]["styles"][mode],
        scripts: assetsMapper["index"]["scripts"][mode]
      });

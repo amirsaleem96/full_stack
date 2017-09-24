@@ -7,24 +7,55 @@ var compression = require("compression");
 var program = require('commander');
 var multer = require('multer');
 var path = require("path");
-var mode = 'prod';
+var mode = 'production';
+
+
+var mysql = require('mysql');
+
+var poolConfig = {
+  host : "localhost",
+  user : "amir",
+  password : "#Lm%d0642cd",
+  database : "testdb",
+  connectionLimit : 20,
+  connectTimeout: 120000 ,
+	timeout: 120000
+}
+
+var con = mysql.createPool(poolConfig);
+
+con.getConnection(function(err,connection){
+  if(err) {
+    throw err;
+  } else {
+    con.query("SELECT * FROM UserMaster",function(err, result, fields){
+      if(err) {
+        throw err;
+      } else {
+        for(var i = 0; i < result.length; i++) {
+          console.log('Name: ' + result[i].FirstName + ' ' + result[i].LastName);
+        }
+      }
+    });
+    connection.release();
+  }
+});
 
 program
-    .version(require('./package.json')['version'])
+    .version(require('./package.json').version)
     .option('-d, --debug','run in debug mode')
     .option('-p, --port [value]', 'specify the port number')
-    .option('-pa, --prod','run in production mode')
     .parse(process.argv);
 
 if(!program.port) {
 
- console.log('Port number is required');
+ console.log('Port number is required\nSyntax: --port=8080 (replace 8080 with your own port number)');
  return;
 
 }
 
 if(program.debug) {
-  mode = 'debug'
+  mode = 'debug';
 }
 
 var port = program.port;
@@ -36,7 +67,7 @@ app.set('partials',{
   footer: 'footer'
 });
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression()); //compressing payload on every request
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
@@ -63,6 +94,30 @@ app.post('/upload', function(req,res){
 	  });
 });
 
+app.get("/getImageData", function(req, res){
+   var url= req.query.imageUrl;
+    var options = {string: true};
+        base64.encode(url, options, function (err, image) {
+            if (err) {
+                res.json({
+                        data: null,
+                        status: 'fail',
+                        message: "could not read image"
+                    })
+                return;
+            }
+            else{
+                image = "data:image/jpeg;base64," + image;
+                res.json({
+                        data: image,
+                        status: 'success',
+                        message: "results fetched successfully"
+                    })
+                return;
+            }
+        })
+});
+
 var settings = {
   app : app,
   mode : mode
@@ -70,4 +125,8 @@ var settings = {
 
 require(__dirname+'/routes/home.js')(settings);
 
-app.listen(port);
+app.listen(port, function(){
+  console.log('\nApp is running at port: ' +
+               port + ' in '+mode+' mode\nTo access locally go to:- "localhost:'+port+'"'+
+              '\nTo access on network go to:- "IPv4:'+port+'" where IPv4 is your network IP address for example 192.168.88.111\nTo find your network IP address go to terminal/command prompt and type "ipconfig"' );
+});
